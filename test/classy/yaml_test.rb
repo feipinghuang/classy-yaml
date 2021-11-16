@@ -23,18 +23,21 @@ class Classy::YamlTest < ActiveSupport::TestCase
   end
 
   test "can call non-existent class" do
-    yass(:non_existent)
-    assert true
+    assert_nothing_raised do
+      yass(:non_existent)
+    end
   end
 
   test "can call non-existent nested class" do
-    yass(non_existent: :nested)
-    assert true
+    assert_nothing_raised do
+      yass(non_existent: :nested)
+    end
   end
 
   test "can call existent base with non-existent nested class" do
-    yass(nested_base: :non_existent)
-    assert true
+    assert_nothing_raised do
+      yass(nested_base: :non_existent)
+    end
   end
 
   test "raise error when calling nested on non-nested" do
